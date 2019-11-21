@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_21_140710) do
+ActiveRecord::Schema.define(version: 2019_11_21_175525) do
+
+  create_table "episodes", force: :cascade do |t|
+    t.date "date"
+    t.string "episode_name"
+    t.string "show_name"
+    t.float "season_episode_num"
+    t.string "season_img"
+    t.string "stars"
+    t.string "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "movies", force: :cascade do |t|
     t.date "date"

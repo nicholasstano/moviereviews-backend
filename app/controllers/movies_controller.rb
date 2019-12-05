@@ -1,4 +1,9 @@
 class MoviesController < ApplicationController
+    def create
+        movie = Movie.create(movie_params)
+        render json: movie
+    end
+    
     def index
         movies = Movie.all 
         render json: movies
@@ -9,14 +14,9 @@ class MoviesController < ApplicationController
         render json: movie
     end
 
-    def create
-        movie = Movie.create(movie_params)
-        byebug
-        render json: movie
-    end
-
     private 
     def movie_params 
-        params.require(:movie).permit(:date, :title, :year, :director, :movie_img, :stars, :notes)
+        params.require(:movie).permit(:id, :date, :title, :year, :director, :movie_img, :stars, :notes)
     end
 end
+
